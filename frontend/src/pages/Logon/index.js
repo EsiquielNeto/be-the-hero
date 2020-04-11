@@ -5,8 +5,7 @@ import { FiLogIn } from 'react-icons/fi';
 import logoImg from '../../assets/logo.svg';
 import heroesImg from '../../assets/heroes.png';
 import api from '../../services/api';
-
-import './styles.css';
+import { LogonContainer } from './styles';
 
 export default function Logon() {
     const [id, setId] = useState('');
@@ -29,7 +28,8 @@ export default function Logon() {
     }
 
     return (
-        <div className="logon-container">
+
+        <LogonContainer>
             <section className="form">
                 <img src={logoImg} alt="Be The Hero" />
 
@@ -50,6 +50,6 @@ export default function Logon() {
             </section>
 
             <img src={heroesImg} alt="Heroes" />
-        </div>
+        </LogonContainer>
     );
 }

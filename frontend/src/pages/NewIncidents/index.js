@@ -4,8 +4,7 @@ import { Link, useHistory } from 'react-router-dom';
 
 import logoImg from '../../assets/logo.svg';
 import api from '../../services/api';
-
-import './styles.css';
+import { NewIncidentContainer, Content } from './styles';
 
 export default function NewIncidents() {
     const ongId = localStorage.getItem('ongId');
@@ -38,8 +37,8 @@ export default function NewIncidents() {
     }
 
     return (
-        <div className="new-incident-container">
-            <div className="content">
+        <NewIncidentContainer>
+            <Content>
                 <section>
                     <img src={logoImg} alt="Be The Hero" />
 
@@ -70,7 +69,7 @@ export default function NewIncidents() {
 
                     <button className="button" type="submit">Cadastrar</button>
                 </form>
-            </div>
-        </div>
+            </Content>
+        </NewIncidentContainer>
     );
 }
