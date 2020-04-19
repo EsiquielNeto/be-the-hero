@@ -21,6 +21,7 @@ export const LogonContainer = styled.div`
     }
     
     section.form form h1 {
+        color: ${({ theme }) => theme.colors.text};
         font-size: 32px;
         margin-bottom: 32px;
     }

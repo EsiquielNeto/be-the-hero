@@ -12,8 +12,10 @@ export const ProfileContainer = styled.div`
     }
     
     header span {
+        color: ${({ theme }) => theme.colors.text};
         font-size: 20;
         margin-left: 24px;
+        transition: background 1s ease 0s, transform 1s ease 0s;
     }
     
     header img {
@@ -30,7 +32,7 @@ export const ProfileContainer = styled.div`
         height: 60px;
         width: 60px;
         border-radius: 4px;
-        border: 1px solid #dcdce6;
+        border: 1px solid ${({ theme }) => theme.colors.border};
         background: transparent;
         margin-left: 16px;
         transition: border-color 0.2s;
@@ -41,6 +43,8 @@ export const ProfileContainer = styled.div`
     }
     
     h1 {
+        color: ${({ theme }) => theme.colors.text};
+        transition: background 1s ease 0s, transform 1s ease 0s;
         margin-top: 80px;
         margin-bottom: 24px;
     }    
@@ -54,7 +58,8 @@ export const IncidentList = styled.ul`
 `;
 
 export const IncidentItem = styled.li`
-    background: #FFF;
+    background: ${({ theme }) => theme.colors.content};
+    transition: background 1s ease 0s, transform 1s ease 0s;
     padding: 24px;
     border-radius: 8px;
     position: relative;
@@ -67,14 +72,16 @@ export const IncidentItem = styled.li`
         border: 0;
     }
 
-    button:hover {
+    button:hover svg{
         opacity: 0.8;
+        stroke: #e02141;
     }
-
+    
     strong{
         display: block;
         margin-bottom: 16px;
-        color: #41414d;
+        color: ${({ theme }) => theme.colors.incidentTitle};
+        transition: background 1s ease 0s, transform 1s ease 0s;
     }
 
     p + strong {
@@ -82,7 +89,8 @@ export const IncidentItem = styled.li`
     }
 
     p {
-        color: #737380;
+        color: ${({ theme }) => theme.colors.text};
+        transition: background 1s ease 0s, transform 1s ease 0s;
         line-height: 32px;
         font-size: 16px;
     }
