@@ -5,7 +5,21 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 
 import api from '../../services/api';
 import logoImg from '../../assets/logo.png';
-import styles from './styles';
+
+import {
+    Container,
+    Description,
+    DetailButton,
+    DetailsButtonText,
+    Header,
+    HeaderText,
+    HeaderTextBold,
+    Incident,
+    IncidentList,
+    IncidentProperty,
+    IncidentValue,
+    Title
+} from './styles';
 
 export default function Incidents() {
     const [incidents, setIncidents] = useState([]);
@@ -45,51 +59,56 @@ export default function Incidents() {
     }, []);
 
     return (
-        <View style={styles.container}>
-            <View style={styles.header}>
+    
+    <Container>
+            <Header>
                 <Image source={logoImg} />
-                <Text style={styles.headerText}>
-                    Total de <Text style={styles.headerTextBold}> {total} casos </Text>
-                </Text>
-            </View>
+                <HeaderText>
+                    Total de <HeaderTextBold> {total} casos </HeaderTextBold>
+                </HeaderText>
+            </Header>
 
-            <Text style={styles.title}>Bem vindo!</Text>
-            <Text style={styles.description}>Escolha um dos casos abaixo e salve</Text>
+            <Title>Bem vindo!</Title>
+            <Description>Escolha um dos casos abaixo e salve</Description>
 
 
             <FlatList 
                 data={incidents}
-                style={styles.incidentList}
+                styles="marginTop: 32px;"
                 keyExtractor={incident => String(incident.id)}
                 showsVerticalScrollIndicator={false}
                 onEndReached={loadIncidents}
                 onEndReachedThreshold={0.2}
                 renderItem={({ item: incident }) => (
-                    <View style={styles.incidentList}>
-                        <View style={styles.incident}>
-                            <Text style={styles.incidentProperty}>ONG:</Text>
-                            <Text style={styles.incidentValue}>{incident.name} de {incident.city}/{incident.uf}</Text>
 
-                            <Text style={styles.incidentProperty}>CASO:</Text>
-                            <Text style={styles.incidentValue}>{incident.title}</Text>
+                    <IncidentList>
+                        
+                        <Incident>
+                            <IncidentProperty>ONG:</IncidentProperty>
+                            <IncidentValue>{incident.name} de {incident.city}/{incident.uf}</IncidentValue>
 
-                            <Text style={styles.incidentValue}>VALOR:</Text>
-                            <Text style={styles.incidentValue}>
+                            <IncidentProperty>CASO:</IncidentProperty>
+                            <IncidentValue>{incident.title}</IncidentValue>
+
+                            <IncidentProperty>VALOR:</IncidentProperty>
+                            <IncidentValue>
                                 {Intl.NumberFormat('pt-BR', { 
                                     style: 'currency',
                                     currency: 'BRL'
                                 }).format(incident.value)}
-                            </Text>
+                            </IncidentValue>
 
-                            <TouchableOpacity style={styles.detailButton} onPress={() => navigateToDetail(incident)}>
-                                <Text styles={styles.detailsButtonText}>Ver mais detalhes</Text>
+                            <DetailButton onPress={() => navigateToDetail(incident)}>
+                                <DetailsButtonText>Ver mais detalhes</DetailsButtonText>
                                 <Feather name="arrow-right" size={16} color="#E02041" />
-                            </TouchableOpacity>
-                        </View>
-                    </View>
+                            </DetailButton>
+                        </Incident>
+                        
+                    </IncidentList>
                 )}
             />
 
-        </View>
+        </Container>
+        
     );
 }

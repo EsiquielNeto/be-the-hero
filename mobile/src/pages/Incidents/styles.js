@@ -1,75 +1,73 @@
-import { StyleSheet } from 'react-native';
+import styled from 'styled-components/native';
 import Constants from 'expo-constants';
 
-export default StyleSheet.create({
-    container: {
-        flex: 1,
-        paddingHorizontal: 24,
-        paddingTop: Constants.statusBarHeight + 20
-    },
+export const Container = styled.View`
+    flex: 1;
+    paddingHorizontal: 24px;
+    paddingTop: ${Constants.statusBarHeight + 20 + 'px'}
+`;
 
-    header: {
-        flexDirection: "row",
-        justifyContent: "space-between",
-        alignItems: "center"
-    },
+export const Header = styled.View`
+    flexDirection: row;
+    justifyContent: space-between;
+    alignItems: center
+`;
 
-    headerText: {
-        fontSize: 15,
-        color: '#737380'
-    },
+export const HeaderText = styled.Text`
+    fontSize: 15px;
+    color: #737380
+`;
 
-    headerTextBold: {
-        fontWeight: "bold"
-    },
+export const HeaderTextBold = styled.Text`
+    fontWeight: bold
+`;
 
-    title: {
-        fontSize: 30,
-        marginBottom: 16,
-        marginTop: 48,
-        color: '#13131a',
-        fontWeight: "bold"
-    },
+export const Title = styled.Text`
+    fontSize: 30px;
+    marginBottom: 16px;
+    marginTop: 48px;
+    color: #13131a;
+    fontWeight: bold
+`;
 
-    description: {
-        fontSize: 16,
-        lineHeight: 24,
-        color: '#737380'
-    },
+export const Description = styled.Text`
+    fontSize: 16px;
+    lineHeight: 24px;
+    color: #737380
+`;
 
-    incidentList: {
-        marginTop: 32
-    },
+export const IncidentList = styled.View`
+    marginTop: 32px;
+`;
 
-    incident:{
-        padding:24,
-        borderRadius: 8,
-        backgroundColor: '#FFF',
-        marginBottom: 16
-    },
+export const Incident = styled.View`
+    padding: 24px;
+    borderRadius: 8px;
+    backgroundColor: #FFF;
+    marginBottom: 16px;
+`;
 
-    incidentProperty: {
-        fontSize: 14,
-        color: '#41414d',
-        fontWeight: "bold"
-    },
+export const IncidentProperty = styled.Text`
+    fontSize: 14px;
+    color: #41414d;
+    fontWeight: bold;
+`;
 
-    incidentValue: {
-        marginTop: 8,
-        marginBottom: 24,
-        fontSize: 15,
-        color: '#737380'
-    },
+export const IncidentValue = styled.Text`
+    marginTop: 8px;
+    marginBottom: 24px;
+    fontSize: 15px;
+    color: #737390
+`;
 
-    detailButton: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: "center"
-    },
+export const DetailButton = styled.TouchableOpacity`
+    flexDirection: row;
+    justifyContent: space-between;
+    alignItems: center;
+`;
 
-    detailButtonText: {
-        color: '#E02041',
-        fontSize: 15,
-        fontWeight: "bold"
-    }
-});
+export const DetailsButtonText = styled.Text`
+    color: #E20401;
+    fontSize: 15px;
+    fontWeight bold;
+`;

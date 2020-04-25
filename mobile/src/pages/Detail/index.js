@@ -7,6 +7,19 @@ import * as MailComposer from 'expo-mail-composer';
 
 import styles from './styles'
 import logoImg from '../../assets/logo.png';
+import {
+    Action,
+    ActionText,
+    Actions,
+    ContactBox,
+    Container,
+    Header,
+    HeroDescription,
+    HeroTitle,
+    Incident,
+    IncidentProperty,
+    IncidentValue
+} from './style';
 
 export default function Detail() {
     const navigation = useNavigation();
@@ -32,47 +45,48 @@ export default function Detail() {
     }
 
     return (
-        <View style={styles.container}>
-            <View style={styles.header}>
+        <Container>
+            <Header>
                 <Image source={logoImg} />
 
                 <TouchableOpacity onPress={navigateBack}>
                     <Feather name="arrow-left" size={16} colo="#E82041" />
                 </TouchableOpacity>
-            </View>
+            </Header>
 
-            <View style={styles.incident}>
-                <Text style={[styles.incidentProperty, { marginTop: 0 }]}>ONG:</Text>
-                <Text style={styles.incidentValue}>{incident.name}</Text>
+            <Incident>
+                {/* <Text style={[styles.incidentProperty, { marginTop: 0 }]}>ONG:</Text> */}
+                <IncidentProperty>ONG:</IncidentProperty>
+                <IncidentValue>{incident.name}</IncidentValue>
 
-                <Text style={styles.incidentProperty}>CASO:</Text>
-                <Text style={styles.incidentValue}>{incident.title}</Text>
+                <IncidentProperty>CASO:</IncidentProperty>
+                <IncidentValue>{incident.title}</IncidentValue>
 
-                <Text style={styles.incidentProperty}>VALOR:</Text>
-                <Text style={styles.incidentValue}> {
+                <IncidentProperty>VALOR:</IncidentProperty>
+                <IncidentValue> {
                     Intl.NumberFormat('pt-BR', { 
                     style: 'currency',
                     currency: 'BRL'
                     }).format(incident.value)}
-                </Text>
-            </View>
+                </IncidentValue>
+            </Incident>
 
-            <View style={styles.contactBox}>
-                <Text style={styles.heroTitle}>Salve o dia!</Text>
-                <Text style={styles.heroTitle}>Seja o heroi desse caso</Text>
+            <ContactBox>
+                <HeroTitle>Salve o dia!</HeroTitle>
+                <HeroTitle>Seja o heroi desse caso</HeroTitle>
 
-                <Text style={styles.heroDescription}>Entre em contato:</Text>
+                <HeroDescription>Entre em contato:</HeroDescription>
 
-                <View style={styles.actions}>
-                    <TouchableOpacity style={styles.action} onPress={sendEmail}>
-                        <Text style={styles.actionText}>Whtsapp</Text>
-                    </TouchableOpacity>
+                <Actions>
+                    <Action onPress={ sendWhatsapp }>
+                        <ActionText>Whtsapp</ActionText>
+                    </Action>
 
-                    <TouchableOpacity style={styles.action} onPress={sendWhatsapp}>
-                        <Text style={styles.actionText}>E-mail</Text>
-                    </TouchableOpacity>
-                </View>
-            </View>
-        </View>
+                    <Action onPress={ sendEmail }>
+                        <ActionText>E-mail</ActionText>
+                    </Action>
+                </Actions>
+            </ContactBox>
+        </Container>
     );
 }
