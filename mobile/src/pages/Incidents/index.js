@@ -59,20 +59,21 @@ export default function Incidents() {
     }, []);
 
     return (
-    
-    <Container>
+
+        <Container>
             <Header>
                 <Image source={logoImg} />
-                <HeaderText>
-                    Total de <HeaderTextBold> {total} casos </HeaderTextBold>
-                </HeaderText>
+
             </Header>
 
             <Title>Bem vindo!</Title>
             <Description>Escolha um dos casos abaixo e salve</Description>
+            <HeaderText>
+                Total de <HeaderTextBold> {total} casos </HeaderTextBold>
+            </HeaderText>
 
 
-            <FlatList 
+            <FlatList
                 data={incidents}
                 styles="marginTop: 32px;"
                 keyExtractor={incident => String(incident.id)}
@@ -82,7 +83,7 @@ export default function Incidents() {
                 renderItem={({ item: incident }) => (
 
                     <IncidentList>
-                        
+
                         <Incident>
                             <IncidentProperty>ONG:</IncidentProperty>
                             <IncidentValue>{incident.name} de {incident.city}/{incident.uf}</IncidentValue>
@@ -92,7 +93,7 @@ export default function Incidents() {
 
                             <IncidentProperty>VALOR:</IncidentProperty>
                             <IncidentValue>
-                                {Intl.NumberFormat('pt-BR', { 
+                                {Intl.NumberFormat('pt-BR', {
                                     style: 'currency',
                                     currency: 'BRL'
                                 }).format(incident.value)}
@@ -103,12 +104,12 @@ export default function Incidents() {
                                 <Feather name="arrow-right" size={16} color="#E02041" />
                             </DetailButton>
                         </Incident>
-                        
+
                     </IncidentList>
                 )}
             />
 
         </Container>
-        
+
     );
 }
